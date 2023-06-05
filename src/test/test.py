@@ -59,7 +59,7 @@ for key, value in dict_labels.items():
     lst_labels.append([key, value])
     
 dict_labels_df = pd.DataFrame(lst_labels, columns=['key', 'value'])
-)
+
 
 y_test_ = y_test.merge()
 
