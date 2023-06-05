@@ -46,13 +46,26 @@ y_pred = clf.predict(X_test)
 
 print(classification_report(y_test, y_pred))
 
+pred_labels = []
+real_labels = []
+for item in y_test:
+    for key, value in dict_labels.items():
+        if str(item) == str(value):
+            pred_labels.append(key)
+            
+for item in y_pred:
+    for key, value in dict_labels.items():
+        if str(item) == str(value):
+            real_labels.append(key)
+
 X_test[:20].tolist()
 y_test[:20].tolist()
 y_pred[:20].tolist()
 
-new_df = pd.DataFrame({'X_test': X_test, 'y_test': y_test, 'y_pred': y_pred})
+new_df = pd.DataFrame({'X_test': X_test, 'y_test': y_test, 'y_pred': y_pred, 
+                       'pred_labels': pred_labels, 'real_labels': real_labels})
 
-df_merged.to_excel(r'D:\projects\text-classification\text-classification\repo\test_sabtenam4.xlsx')
+new_df.to_excel(r'D:\projects\text-classification\text-classification\repo\test_sabtenam4.xlsx')
 
 lst_labels = []
 for key, value in dict_labels.items():
