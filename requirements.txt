@@ -1,0 +1,5 @@
+fasttext
+pandas
+scikit-learn
+openpyxl
+-e .
